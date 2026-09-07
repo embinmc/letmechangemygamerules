@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "embinmc.mod.gamerules.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "WorldOptionsScreenMixin",
+    "ServerPacketListenerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
+  }
+}
