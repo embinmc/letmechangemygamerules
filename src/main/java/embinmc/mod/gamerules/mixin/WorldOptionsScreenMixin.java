@@ -18,16 +18,17 @@ public class WorldOptionsScreenMixin {
 	@Shadow private @Nullable Button gameRulesButton;
 
 	@Inject(method = "updateButton", at = @At("TAIL"))
-	private void embin$allowGameRule(AbstractWidget widget, IntegratedServer singleplayerServer, Tooltip tooltip, Tooltip disabledTooltip, Tooltip hardcoreTooltip, CallbackInfo ci) {
+	private void embinmc_letmechangemygamerules$allowGameRule(AbstractWidget widget, IntegratedServer singleplayerServer, Tooltip tooltip, Tooltip disabledTooltip, Tooltip hardcoreTooltip, CallbackInfo ci) {
 		if (widget == this.gameRulesButton && singleplayerServer != null) {
 			widget.active = true;
 			widget.setTooltip(null);
 		}
 	}
 
+	// 26.3
 	// make sure the button is active on init
 	@Inject(method = "generalOptions", at = @At("TAIL"))
-	private void embin$reupdateGameRuleButton(LinearLayout content, IntegratedServer singleplayerServer, CallbackInfo ci) {
+	private void embinmc_letmechangemygamerules$reupdateGameRuleButton(LinearLayout content, IntegratedServer singleplayerServer, CallbackInfo ci) {
 		if (singleplayerServer != null && this.gameRulesButton != null) {
 			this.gameRulesButton.active = true;
 			this.gameRulesButton.setTooltip(null);

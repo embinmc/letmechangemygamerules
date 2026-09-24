@@ -8,8 +8,9 @@
 		"Embin"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/mod/letmechangemygamerules",
+		"sources": "https://github.com/embinmc/letmechangemygamerules",
+		"issues": "https://github.com/embinmc/letmechangemygamerules/issues"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/letmechangemygamerules/icon.png",
@@ -22,7 +23,7 @@
 		}
 	],
 	"depends": {
-		"fabricloader": ">=0.19.5",
+		"fabricloader": ">=0.19.3",
 		"minecraft": ">=26.3-pre.2",
 		"java": ">=25"
 	}

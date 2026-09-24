@@ -20,7 +20,7 @@ public abstract class ServerPacketListenerMixin {
     public abstract ServerPlayer getPlayer();
 
     @ModifyExpressionValue(method = "handleSetGameRule", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/permissions/PermissionSet;hasPermission(Lnet/minecraft/server/permissions/Permission;)Z"))
-    public boolean embin$allowSetWithoutCommands(boolean original) {
+    public boolean embinmc_letmechangemygamerules$allowSetWithoutCommands(boolean original) {
         MinecraftServer server = this.getPlayer().level().getServer();
         if (server.isSingleplayer()) {
             return original || server.isSingleplayerOwner(this.getPlayer().nameAndId());
@@ -29,7 +29,7 @@ public abstract class ServerPacketListenerMixin {
     }
 
     @ModifyExpressionValue(method = "sendGameRuleValues", at = @At(value = "INVOKE", target = "Lnet/minecraft/server/permissions/PermissionSet;hasPermission(Lnet/minecraft/server/permissions/Permission;)Z"))
-    public boolean embin$allowGetWithoutCommands(boolean original) {
+    public boolean embinmc_letmechangemygamerules$allowGetWithoutCommands(boolean original) {
         MinecraftServer server = this.getPlayer().level().getServer();
         if (server.isSingleplayer()) {
             return original || server.isSingleplayerOwner(this.getPlayer().nameAndId());
@@ -39,7 +39,7 @@ public abstract class ServerPacketListenerMixin {
 
     // send game rule changes to player even if not op
     @Inject(method = "broadcastGameRuleChangeToOperators", at = @At("TAIL"))
-    private <T> void embin$allowBroadcastWithoutCommands(GameRule<T> rule, T value, CallbackInfo ci, @Local(name = "message") Component message) {
+    private <T> void embinmc_letmechangemygamerules$allowBroadcastWithoutCommands(GameRule<T> rule, T value, CallbackInfo ci, @Local(name = "message") Component message) {
         MinecraftServer server = this.getPlayer().level().getServer();
         if (server.isSingleplayer()) {
             PlayerList playerList = server.getPlayerList();
